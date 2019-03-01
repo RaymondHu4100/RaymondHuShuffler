@@ -36,11 +36,28 @@ public class Shuffler
         int k = 0;
         for (int j = 0; j < values.length/2; j++)
         {
-            
+            shuffled[k] = values[j];
+            k += 2;
+        }
+        k = 1;
+        for (int j = values.length/2; j < values.length; j++)
+        {
+            shuffled[k] = values[j];
+            k += 2;
+        }
+        for (int i = 0; i < shuffled.length; i++)
+        {
+            values[i] = shuffled[i];
         }
     }
     public static void selectionShuffle(int[] values)
     {
-
+        for (int i = values.length-1; i > 0; i--)
+        {
+            int cards = (int)Math.random() * (i+1);
+            int shuffled = values[cards];
+            values[cards] = values[i];
+            values[i] = shuffled;
+        }
     }
 }
